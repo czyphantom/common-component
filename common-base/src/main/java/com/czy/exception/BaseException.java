@@ -5,7 +5,7 @@ package com.czy.exception;
  * @author czy
  * @date 2020/07/26 20:28
  */
-public class BaseException extends RuntimeException {
+public abstract class BaseException extends RuntimeException {
 
     private final ErrorCode errorCode;
 
@@ -14,7 +14,14 @@ public class BaseException extends RuntimeException {
         this.errorCode = errorCode;
     }
 
+    public BaseException(ErrorCode errorCode, Throwable e, Object... args) {
+        super(errorCode.formatMessage(errorCode, args), e);
+        this.errorCode = errorCode;
+
+    }
+
     public ErrorCode getErrorCode() {
         return this.errorCode;
     }
+
 }
