@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSON;
 
 import java.text.MessageFormat;
 import java.util.Arrays;
-import java.util.stream.Collectors;
 
 /**
  * 错误码接口
@@ -26,7 +25,7 @@ public interface ErrorCode {
     String getMessage();
 
     default String formatMessage(ErrorCode errorCode, Object... args) {
-        Object[] formatObjects = Arrays.stream(args).map(arg -> JSON.toJSONString(args)).collect(Collectors.toList()).toArray();
+        Object[] formatObjects = Arrays.stream(args).map(arg -> JSON.toJSONString(args)).toArray();
         return MessageFormat.format(errorCode.getMessage(), formatObjects);
     }
 }

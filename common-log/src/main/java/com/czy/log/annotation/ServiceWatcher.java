@@ -20,4 +20,10 @@ public @interface ServiceWatcher {
      * @return
      */
     String serviceName();
+
+    /**
+     * 是否只在异常时记录日志
+     * @return
+     */
+    boolean printLogOnlyWhenException() default false;
 }
