@@ -12,7 +12,6 @@
     <modules>
         <module>common-base</module>
         <module>common-log</module>
-        <module>common-impl</module>
     </modules>
 
     <properties>
